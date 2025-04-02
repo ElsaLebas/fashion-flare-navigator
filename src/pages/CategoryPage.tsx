@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
 import { Hits, InstantSearch, Configure } from 'react-instantsearch';
@@ -47,8 +46,8 @@ const CategoryPage = () => {
           {/* Algolia InstantSearch */}
           <div className="w-full">
             <InstantSearch searchClient={searchClient} indexName="fashion">
-              {/* Filter by category */}
-              <Configure filters={`category:${categoryId}`} />
+              {/* Filter by categoryPageId */}
+              <Configure filters={`categoryPageId:"${categoryId}"`} />
               
               <div className="mb-6">
                 <p className="text-sm text-gray-600">Browse our {category.name} collection</p>

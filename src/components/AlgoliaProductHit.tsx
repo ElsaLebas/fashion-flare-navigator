@@ -7,31 +7,36 @@ interface HitProps {
   hit: {
     objectID: string;
     name: string;
-    price: number;
+    price: {
+      value: number;
+      discounted_value?: number;
+      discount_percent?: number;
+    };
+    primary_image: string;
     images: string[];
-    category: string;
-    discount?: number;
+    categoryPageId: string[];
+    slug: string;
   };
 }
 
 const AlgoliaProductHit = ({ hit }: HitProps) => {
-  const { objectID, name, price, images, discount } = hit;
-  const discountedPrice = discount ? price - (price * discount / 100) : price;
+  const { objectID, name, price, primary_image, slug } = hit;
+  const hasDiscount = price.discount_percent && price.discount_percent > 0;
   
   return (
     <div className="group">
       <div className="relative overflow-hidden">
-        <Link to={`/product/${objectID}`}>
+        <Link to={`/product/${slug}`}>
           <img 
-            src={images[0]} 
+            src={primary_image} 
             alt={name} 
             className="w-full h-80 object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
         </Link>
         
-        {discount && (
+        {hasDiscount && (
           <div className="absolute top-2 left-2 bg-fashion-burgundy text-white px-2 py-1 text-xs font-medium">
-            {discount}% OFF
+            {price.discount_percent}% OFF
           </div>
         )}
         
@@ -47,20 +52,20 @@ const AlgoliaProductHit = ({ hit }: HitProps) => {
       </div>
       
       <div className="mt-4 px-1">
-        <Link to={`/product/${objectID}`} className="block">
+        <Link to={`/product/${slug}`} className="block">
           <h3 className="text-fashion-black font-medium mb-1 hover:text-fashion-burgundy transition-colors">
             {name}
           </h3>
         </Link>
         
         <div className="flex items-center space-x-2">
-          {discount ? (
+          {hasDiscount ? (
             <>
-              <span className="text-fashion-burgundy font-medium">${discountedPrice.toFixed(2)}</span>
-              <span className="text-gray-500 line-through text-sm">${price.toFixed(2)}</span>
+              <span className="text-fashion-burgundy font-medium">${price.discounted_value?.toFixed(2)}</span>
+              <span className="text-gray-500 line-through text-sm">${price.value.toFixed(2)}</span>
             </>
           ) : (
-            <span className="font-medium">${price.toFixed(2)}</span>
+            <span className="font-medium">${price.value.toFixed(2)}</span>
           )}
         </div>
       </div>

@@ -19,15 +19,24 @@ const Navbar = () => {
             <Link to="/" className="text-fashion-black hover:text-fashion-burgundy transition-colors">
               Home
             </Link>
-            {categories.map((category) => (
-              <Link
-                key={category.id}
-                to={`/category/${category.id}`}
-                className="text-fashion-black hover:text-fashion-burgundy transition-colors"
-              >
-                {category.name}
-              </Link>
-            ))}
+            <Link
+              to="/category/women"
+              className="text-fashion-black hover:text-fashion-burgundy transition-colors"
+            >
+              Women
+            </Link>
+            <Link
+              to="/category/men"
+              className="text-fashion-black hover:text-fashion-burgundy transition-colors"
+            >
+              Men
+            </Link>
+            <Link
+              to="/category/accessories"
+              className="text-fashion-black hover:text-fashion-burgundy transition-colors"
+            >
+              Accessories
+            </Link>
           </div>
           
           {/* Icons */}
@@ -66,16 +75,27 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              {categories.map((category) => (
-                <Link
-                  key={category.id}
-                  to={`/category/${category.id}`}
-                  className="text-fashion-black hover:text-fashion-burgundy transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {category.name}
-                </Link>
-              ))}
+              <Link
+                to="/category/women"
+                className="text-fashion-black hover:text-fashion-burgundy transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Women
+              </Link>
+              <Link
+                to="/category/men"
+                className="text-fashion-black hover:text-fashion-burgundy transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Men
+              </Link>
+              <Link
+                to="/category/accessories"
+                className="text-fashion-black hover:text-fashion-burgundy transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Accessories
+              </Link>
             </div>
           </div>
         )}
