@@ -4,12 +4,9 @@ import Footer from "@/components/Footer";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import ShopByOccasion from "@/components/ShopByOccasion";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { getNewArrivals } from "@/data/interfaces";
 import { Link } from "react-router-dom";
 
 const Index = () => {
-  const newArrivals = getNewArrivals();
-
   return (
     <>
       <Navbar />
@@ -43,13 +40,6 @@ const Index = () => {
             </Link>
           </div>
         </section>
-
-        {/* New Arrivals */}
-        <FeaturedProducts
-          title="New Arrivals"
-          products={newArrivals}
-          backgroundClass="bg-fashion-cream"
-        />
 
         {/* Newsletter */}
         <NewsletterSignup />
