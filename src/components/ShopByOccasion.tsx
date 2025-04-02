@@ -19,7 +19,7 @@ const ShopByOccasion = ({ title }: ShopByOccasionProps) => {
     {
       id: "casual",
       title: "Casual Day Out",
-      image: "https://plus.unsplash.com/premium_photo-1688497831384-e40b2e5615cd?q=80&w=3086&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "https://images.unsplash.com/photo-1564859228273-274232fdb516?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       link: "/category/women?occasion=casual"
     },
     {
@@ -31,19 +31,19 @@ const ShopByOccasion = ({ title }: ShopByOccasionProps) => {
     {
       id: "office",
       title: "Office Wear",
-      image: "https://images.unsplash.com/photo-1636191284490-fff58f369ec6?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "https://images.unsplash.com/photo-1548454782-15b189d129ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       link: "/category/women?occasion=office"
     },
     {
       id: "wedding",
       title: "Wedding Guest",
-      image: "https://images.unsplash.com/photo-1518102885802-e869dcb9da8b?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "https://images.unsplash.com/photo-1623091410901-00e2d268ee37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       link: "/category/women?occasion=wedding"
     },
     {
       id: "party",
       title: "Party Night",
-      image: "https://plus.unsplash.com/premium_photo-1699389167605-88e5bc060a10?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "https://images.unsplash.com/photo-1605763240000-7e93b172d754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       link: "/category/women?occasion=party"
     },
     {
@@ -55,19 +55,19 @@ const ShopByOccasion = ({ title }: ShopByOccasionProps) => {
     {
       id: "active",
       title: "Active & Sporty",
-      image: "https://plus.unsplash.com/premium_photo-1664885647983-772bde237f43?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       link: "/category/women?occasion=active"
     },
     {
       id: "cozy",
       title: "Cozy & Comfy",
-      image: "https://images.unsplash.com/photo-1675379086716-95bf8a4d22f2?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       link: "/category/women?occasion=cozy"
     },
     {
       id: "date",
-      title: "Date Night",
-      image: "https://images.unsplash.com/photo-1629123384492-ebee058af32e?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Date Night Out",
+      image: "https://images.unsplash.com/photo-1565128939079-0d525e675a22?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       link: "/category/women?occasion=date"
     }
   ];
