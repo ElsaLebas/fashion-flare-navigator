@@ -3,9 +3,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Search, ShoppingBag, User } from "lucide-react";
 import { categories } from "@/data/products";
+import SearchModal from "./SearchModal";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
@@ -32,7 +34,10 @@ const Navbar = () => {
           
           {/* Icons */}
           <div className="flex items-center space-x-4">
-            <button className="text-fashion-black hover:text-fashion-burgundy transition-colors">
+            <button 
+              className="text-fashion-black hover:text-fashion-burgundy transition-colors"
+              onClick={() => setIsSearchOpen(true)}
+            >
               <Search size={20} />
             </button>
             <Link to="/account" className="text-fashion-black hover:text-fashion-burgundy transition-colors">
@@ -80,6 +85,9 @@ const Navbar = () => {
           </div>
         )}
       </div>
+
+      {/* Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </nav>
   );
 };
