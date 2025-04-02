@@ -57,7 +57,7 @@ const CategoryPage = () => {
                 <p className="text-sm text-gray-600">Showing {category.name} products</p>
               </div>
 
-              <div className="product-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="product-grid">
                 <Hits hitComponent={AlgoliaProductHit} />
               </div>
             </InstantSearch>
