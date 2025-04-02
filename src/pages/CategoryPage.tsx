@@ -1,33 +1,20 @@
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
-import { Hits, InstantSearch } from 'react-instantsearch';
+import { Hits, InstantSearch, Configure } from 'react-instantsearch';
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ProductCard from "@/components/ProductCard";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { categories, getProductsByCategory, Product } from "@/data/products";
+import { categories } from "@/data/products";
+import AlgoliaProductHit from "@/components/AlgoliaProductHit";
 
 const searchClient = algoliasearch('OCMWCWP51K', '03e24dfa26a757a423d97bd062a0fa1b');
 
-function Hit({ hit }) {
-  return JSON.stringify(hit);
-}
-
 const CategoryPage = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
-  const [products, setProducts] = useState<Product[]>([]);
-
   const category = categories.find(c => c.id === categoryId);
-
-  useEffect(() => {
-    if (categoryId) {
-      const categoryProducts = getProductsByCategory(categoryId);
-      setProducts(categoryProducts);
-    }
-  }, [categoryId]);
 
   if (!category) {
     return <div>Category not found</div>;
@@ -57,26 +44,20 @@ const CategoryPage = () => {
         </div>
 
         <div className="container-custom py-8">
-          {/* Products Grid - Simplified for Algolia integration */}
-          <InstantSearch searchClient={searchClient} indexName="fashion">
-            <Hits hitComponent={Hit} />
-          </InstantSearch>
+          {/* Algolia InstantSearch */}
           <div className="w-full">
-            <div className="mb-6">
-              <p className="text-sm text-gray-600">Showing {products.length} products</p>
-            </div>
+            <InstantSearch searchClient={searchClient} indexName="fashion">
+              {/* Filter by category */}
+              <Configure filters={`category:${categoryId}`} />
+              
+              <div className="mb-6">
+                <p className="text-sm text-gray-600">Browse our {category.name} collection</p>
+              </div>
 
-            {products.length > 0 ? (
               <div className="product-grid">
-                {products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
+                <Hits hitComponent={AlgoliaProductHit} />
               </div>
-            ) : (
-              <div className="text-center py-16">
-                <p className="text-gray-500">No products found in this category.</p>
-              </div>
-            )}
+            </InstantSearch>
           </div>
         </div>
 
