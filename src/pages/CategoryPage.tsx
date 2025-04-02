@@ -1,7 +1,7 @@
 
 import { useParams } from "react-router-dom";
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
-import { Hits, InstantSearch, Configure } from 'react-instantsearch';
+import { Hits, InstantSearch, Configure, Pagination } from 'react-instantsearch';
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -22,7 +22,6 @@ const CategoryPage = () => {
 
   // Create the filter in the correct format for Algolia
   const filter = `hierarchical_categories.lvl0:"${categoryId}"`;
-  console.log('Applied Algolia filter:', filter);
 
   return (
     <>
@@ -51,8 +50,8 @@ const CategoryPage = () => {
           {/* Algolia InstantSearch */}
           <div className="w-full">
             <InstantSearch searchClient={searchClient} indexName="fashion">
-              <Configure filters={filter} />
-              
+              <Configure filters={filter} hitsPerPage={30} />
+
               <div className="mb-6">
                 <p className="text-sm text-gray-600">Showing {category.name} products</p>
               </div>
@@ -60,6 +59,7 @@ const CategoryPage = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <Hits hitComponent={AlgoliaProductHit} />
               </div>
+              <Pagination />
             </InstantSearch>
           </div>
         </div>
