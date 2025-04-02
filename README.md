@@ -24,6 +24,6 @@ This project is built with:
 
 [Click here](https://preview--fashion-flare-navigator.lovable.app/)
 
-## Lovable Project Link
+## Lovable project link
 
 [Click here](https://lovable.dev/projects/58ac25d5-d7b5-4551-a253-5473a7234333)
