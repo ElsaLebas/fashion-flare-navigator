@@ -1,6 +1,8 @@
-import { useParams } from "react-router-dom";
+
+import { useParams, useNavigate } from "react-router-dom";
 import { liteClient as algoliasearch } from "algoliasearch/lite";
 import { Hits, InstantSearch, Configure, Pagination, RefinementList, RangeInput } from "react-instantsearch";
+import { useEffect } from "react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,6 +15,11 @@ const searchClient = algoliasearch("OCMWCWP51K", "03e24dfa26a757a423d97bd062a0fa
 const CategoryPage: React.FC = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
   const category = categories.find((c) => c.id === categoryId);
+  
+  // Scroll to top on component mount or categoryId change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [categoryId]);
 
   if (!category) {
     return <div>Category not found</div>;

@@ -1,11 +1,17 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, Search, ShoppingBag, User } from "lucide-react";
 import { categories } from "@/data/interfaces";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (path: string) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
@@ -19,24 +25,24 @@ const Navbar = () => {
             <Link to="/" className="text-fashion-black hover:text-fashion-burgundy transition-colors">
               Home
             </Link>
-            <Link
-              to="/category/women"
+            <button
+              onClick={() => handleCategoryClick("/category/women")}
               className="text-fashion-black hover:text-fashion-burgundy transition-colors"
             >
               Women
-            </Link>
-            <Link
-              to="/category/men"
+            </button>
+            <button
+              onClick={() => handleCategoryClick("/category/men")}
               className="text-fashion-black hover:text-fashion-burgundy transition-colors"
             >
               Men
-            </Link>
-            <Link
-              to="/category/accessories"
+            </button>
+            <button
+              onClick={() => handleCategoryClick("/category/accessories")}
               className="text-fashion-black hover:text-fashion-burgundy transition-colors"
             >
               Accessories
-            </Link>
+            </button>
           </div>
 
           {/* Icons */}
@@ -75,27 +81,33 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              <Link
-                to="/category/women"
-                className="text-fashion-black hover:text-fashion-burgundy transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              <button
+                onClick={() => {
+                  handleCategoryClick("/category/women");
+                  setIsMenuOpen(false);
+                }}
+                className="text-left text-fashion-black hover:text-fashion-burgundy transition-colors"
               >
                 Women
-              </Link>
-              <Link
-                to="/category/men"
-                className="text-fashion-black hover:text-fashion-burgundy transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button
+                onClick={() => {
+                  handleCategoryClick("/category/men");
+                  setIsMenuOpen(false);
+                }}
+                className="text-left text-fashion-black hover:text-fashion-burgundy transition-colors"
               >
                 Men
-              </Link>
-              <Link
-                to="/category/accessories"
-                className="text-fashion-black hover:text-fashion-burgundy transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button
+                onClick={() => {
+                  handleCategoryClick("/category/accessories");
+                  setIsMenuOpen(false);
+                }}
+                className="text-left text-fashion-black hover:text-fashion-burgundy transition-colors"
               >
                 Accessories
-              </Link>
+              </button>
             </div>
           </div>
         )}
