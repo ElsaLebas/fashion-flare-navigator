@@ -20,8 +20,17 @@ const OccasionPage = () => {
   //   return <div>occasion not found</div>;
   // }
 
-  // Create the filter in the correct format for Algolia
-  const filter = `occasion:"${occasionId}"`;
+  // Format the occasionId by replacing underscores with spaces for Algolia filter
+  const formattedOccasionId = occasionId ? occasionId.replace(/_/g, ' ') : '';
+
+  // Create the filter in the correct format for Algolia using the formatted occasion ID
+  const filter = `occasion:"${formattedOccasionId}"`;
+
+  // Format the occasion ID for display purpose (capitalize each word)
+  const displayOccasionName = formattedOccasionId
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 
   return (
     <>
@@ -53,7 +62,7 @@ const OccasionPage = () => {
               <Configure filters={filter} hitsPerPage={30} />
 
               <div className="mb-6">
-                <p className="text-sm text-gray-600">Showing { occasionId } products</p>
+                <p className="text-sm text-gray-600">Showing {displayOccasionName} products</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
