@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
+import ShopByOccasion from "@/components/ShopByOccasion";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { categories, getFeaturedProducts, getNewArrivals } from "@/data/products";
 import { Link } from "react-router-dom";
@@ -47,6 +48,9 @@ const Index = () => {
           </div>
         </section>
         
+        {/* Shop by Occasion */}
+        <ShopByOccasion title="Shop by Occasion" />
+        
         {/* Featured Products */}
         <FeaturedProducts title="Featured Collection" products={featuredProducts} />
         
@@ -77,7 +81,11 @@ const Index = () => {
         </section>
         
         {/* New Arrivals */}
-        <FeaturedProducts title="New Arrivals" products={newArrivals} />
+        <FeaturedProducts 
+          title="New Arrivals" 
+          products={newArrivals} 
+          backgroundClass="bg-fashion-cream"
+        />
         
         {/* Newsletter */}
         <NewsletterSignup />
