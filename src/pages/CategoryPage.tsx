@@ -58,6 +58,19 @@ const CategoryPage: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
+                  <h3 className="text-md font-medium text-gray-700 mb-2">Occasion</h3>
+                  <RefinementList
+                    attribute="occasion"
+                    classNames={{
+                      list: "space-y-2",
+                      item: "flex items-center space-x-2 text-gray-700",
+                      label: "cursor-pointer hover:text-gray-900 flex w-full justify-start gap-2",
+                      count: "bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full"
+                    }}
+                  />
+                </div>
+
+                <div className="mb-4">
                   <h3 className="text-md font-medium text-gray-700 mb-2">Sizes</h3>
                   <RefinementList
                     attribute="available_sizes"
