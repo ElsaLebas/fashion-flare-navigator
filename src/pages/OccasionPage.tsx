@@ -14,9 +14,6 @@ const searchClient = algoliasearch('OCMWCWP51K', '03e24dfa26a757a423d97bd062a0fa
 
 const OccasionPage = () => {
   const { occasionId } = useParams<{ occasionId: string }>();
-  // Format the occasion name by replacing underscores with spaces
-  const formattedOccasionName = occasionId ? occasionId.replace(/_/g, ' ') : '';
-  
   // const occasion = categories.find(c => c.id === occasionId);
 
   // if (!occasion) {
@@ -56,7 +53,7 @@ const OccasionPage = () => {
               <Configure filters={filter} hitsPerPage={30} />
 
               <div className="mb-6">
-                <p className="text-sm text-gray-600">Showing {formattedOccasionName} products</p>
+                <p className="text-sm text-gray-600">Showing { occasionId } products</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
