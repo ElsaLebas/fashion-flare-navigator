@@ -46,8 +46,8 @@ const CategoryPage = () => {
           {/* Algolia InstantSearch */}
           <div className="w-full">
             <InstantSearch searchClient={searchClient} indexName="fashion">
-              {/* Fix filter for array attribute - use contains operator */}
-              <Configure filters={`categoryPageId:"${categoryId}"`} />
+              {/* Filter using hierarchical_categories.lvl0 attribute */}
+              <Configure filters={`hierarchical_categories.lvl0:"${categoryId}"`} />
               
               <div className="mb-6">
                 <p className="text-sm text-gray-600">Browse our {category.name} collection</p>

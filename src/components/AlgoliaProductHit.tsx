@@ -14,7 +14,11 @@ interface HitProps {
     };
     primary_image: string;
     images: string[];
-    categoryPageId: string[];
+    hierarchical_categories: {
+      lvl0: string;
+      lvl1?: string;
+      lvl2?: string;
+    };
     slug: string;
   };
 }
