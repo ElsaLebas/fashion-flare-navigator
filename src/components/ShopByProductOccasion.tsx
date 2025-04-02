@@ -33,7 +33,7 @@ const ShopByProductOccasion = ({ title }: ShopByProductOccasionProps) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {occasions.map((occasion) => (
-            <Link key={occasion.id} to={`/category/all?occasion=${occasion.id}`}>
+            <Link key={occasion.id} to={`/occasion/${occasion.id}`}>
               <Card className="overflow-hidden border-0 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <CardContent className="p-0 pb-3">
                   <AspectRatio ratio={1}>
