@@ -61,7 +61,7 @@ const ShopByOccasion = ({ title }: ShopByOccasionProps) => {
     {
       id: "cozy",
       title: "Cozy & Comfy",
-      image: "https://images.unsplash.com/photo-1614141882592-4356e9661c71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",
+      image: "https://images.unsplash.com/photo-1555845031-84777f5f0b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       link: "/category/women?occasion=cozy"
     },
     {
