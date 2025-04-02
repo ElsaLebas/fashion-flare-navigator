@@ -65,10 +65,20 @@ const OccasionPage = () => {
                 <p className="text-sm text-gray-600">Showing {displayOccasionName} products</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <Hits hitComponent={AlgoliaProductHit} />
-              </div>
-              <Pagination />
+              <Hits
+                hitComponent={AlgoliaProductHit}
+                classNames={{ list: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" }}
+              />
+
+              <Pagination
+                classNames={{
+                  root: "flex justify-center mt-8",
+                  list: "flex space-x-2",
+                  item: "px-3 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100",
+                  selectedItem: "px-3 py-2 border border-gray-900 bg-gray-900 text-white rounded-lg",
+                  disabledItem: "px-3 py-2 text-gray-400 cursor-not-allowed"
+                }}
+              />
             </InstantSearch>
           </div>
         </div>
