@@ -1,14 +1,12 @@
-
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import { createAlgoliaInsightsClient } from "search-insights";
 import { InstantSearch, SearchBox, Hits, Configure } from "react-instantsearch";
 import { Link } from "react-router-dom";
 import { Product } from "@/data/products";
-import * as algoliaSearch from "algoliasearch/lite";
+import algoliasearch from "algoliasearch/lite";
 
 // Create the Algolia search client with credentials
-const searchClient = algoliaSearch.default(
+const searchClient = algoliasearch(
   "ZH6901PX1J", 
   "84a0b292c99b2c11839802fb6da71990"
 );
