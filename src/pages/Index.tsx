@@ -9,7 +9,6 @@ import { getFeaturedProducts, getNewArrivals } from "@/data/products";
 import { Link } from "react-router-dom";
 
 const Index = () => {
-  const featuredProducts = getFeaturedProducts();
   const newArrivals = getNewArrivals();
   
   return (
@@ -21,9 +20,6 @@ const Index = () => {
         
         {/* Shop by Occasion */}
         <ShopByOccasion title="Shop by Occasion" />
-        
-        {/* Featured Products */}
-        <FeaturedProducts title="Featured Collection" products={featuredProducts} />
         
         {/* Banner */}
         <section className="relative h-96 bg-fashion-black overflow-hidden">
