@@ -1,7 +1,6 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HeroSection from "@/components/HeroSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import ShopByOccasion from "@/components/ShopByOccasion";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -16,8 +15,6 @@ const Index = () => {
       <Navbar />
 
       <main>
-        <HeroSection />
-
         {/* Shop by Occasion */}
         <ShopByOccasion title="Shop by Occasion" />
 
