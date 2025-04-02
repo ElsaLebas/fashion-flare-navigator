@@ -19,7 +19,7 @@ const CategoryPage = () => {
     return <div>Category not found</div>;
   }
 
-  // Convert to proper filter format - this is critical for Algolia
+  // Create the filter in the correct format for Algolia
   const filter = `hierarchical_categories.lvl0:${categoryId}`;
   console.log('Applied Algolia filter:', filter);
 
@@ -50,14 +50,13 @@ const CategoryPage = () => {
           {/* Algolia InstantSearch */}
           <div className="w-full">
             <InstantSearch searchClient={searchClient} indexName="fashion">
-              {/* Filter using hierarchical_categories.lvl0 attribute without quotes */}
               <Configure filters={filter} />
               
               <div className="mb-6">
                 <p className="text-sm text-gray-600">Showing {category.name} products</p>
               </div>
 
-              <div className="product-grid">
+              <div className="product-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <Hits hitComponent={AlgoliaProductHit} />
               </div>
             </InstantSearch>
