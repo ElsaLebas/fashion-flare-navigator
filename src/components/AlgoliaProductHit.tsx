@@ -7,46 +7,31 @@ interface HitProps {
   hit: {
     objectID: string;
     name: string;
-    price: {
-      currency: string;
-      discount_level: number;
-      discounted_value: number;
-      on_sales: boolean;
-      value: number;
-    };
-    primary_image: string;
-    image_urls?: string[];
-    brand: string;
-    category?: string;
-    list_categories?: string[];
-    gender?: string;
-    description?: string;
-    slug: string;
+    price: number;
+    images: string[];
+    category: string;
+    discount?: number;
   };
 }
 
 const AlgoliaProductHit = ({ hit }: HitProps) => {
-  const { objectID, name, price, primary_image, slug } = hit;
-  
-  const displayPrice = price.value;
-  const discountLevel = price.discount_level;
-  const discountedPrice = price.discounted_value > 0 ? price.discounted_value : displayPrice + (displayPrice * (discountLevel / 100));
-  const hasDiscount = discountLevel < 0;
+  const { objectID, name, price, images, discount } = hit;
+  const discountedPrice = discount ? price - (price * discount / 100) : price;
   
   return (
     <div className="group">
       <div className="relative overflow-hidden">
-        <Link to={`/product/${slug}`}>
+        <Link to={`/product/${objectID}`}>
           <img 
-            src={primary_image} 
+            src={images[0]} 
             alt={name} 
             className="w-full h-80 object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
         </Link>
         
-        {hasDiscount && (
+        {discount && (
           <div className="absolute top-2 left-2 bg-fashion-burgundy text-white px-2 py-1 text-xs font-medium">
-            {Math.abs(discountLevel)}% OFF
+            {discount}% OFF
           </div>
         )}
         
@@ -62,20 +47,20 @@ const AlgoliaProductHit = ({ hit }: HitProps) => {
       </div>
       
       <div className="mt-4 px-1">
-        <Link to={`/product/${slug}`} className="block">
+        <Link to={`/product/${objectID}`} className="block">
           <h3 className="text-fashion-black font-medium mb-1 hover:text-fashion-burgundy transition-colors">
             {name}
           </h3>
         </Link>
         
         <div className="flex items-center space-x-2">
-          {hasDiscount ? (
+          {discount ? (
             <>
               <span className="text-fashion-burgundy font-medium">${discountedPrice.toFixed(2)}</span>
-              <span className="text-gray-500 line-through text-sm">${displayPrice.toFixed(2)}</span>
+              <span className="text-gray-500 line-through text-sm">${price.toFixed(2)}</span>
             </>
           ) : (
-            <span className="font-medium">${displayPrice.toFixed(2)}</span>
+            <span className="font-medium">${price.toFixed(2)}</span>
           )}
         </div>
       </div>
