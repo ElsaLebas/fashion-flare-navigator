@@ -1,15 +1,15 @@
 
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import * as algoliasearch from "algoliasearch/lite";
+import algoliasearch from "algoliasearch/lite";
 import { InstantSearch, SearchBox, Hits, Configure } from "react-instantsearch";
 import { Link } from "react-router-dom";
 import { Product } from "@/data/products";
 
 // Replace with your own Algolia credentials
-const searchClient = algoliasearch.default(
+const searchClient = algoliasearch(
   "YOUR_ALGOLIA_APP_ID", 
-  "YOUR_ALGOLIA_SEARCH_API_KEY"
+  "84a0b292c99b2c11839802fb6da71990"
 );
 
 interface SearchModalProps {
