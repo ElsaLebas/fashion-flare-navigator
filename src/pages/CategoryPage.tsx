@@ -1,59 +1,71 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { liteClient as algoliasearch } from 'algoliasearch/lite';
+import { Hits, InstantSearch } from 'react-instantsearch';
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { categories, getProductsByCategory, Product } from "@/data/products";
 
+const searchClient = algoliasearch('OCMWCWP51K', '03e24dfa26a757a423d97bd062a0fa1b');
+
+function Hit({ hit }) {
+  return JSON.stringify(hit);
+}
+
 const CategoryPage = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
   const [products, setProducts] = useState<Product[]>([]);
-  
+
   const category = categories.find(c => c.id === categoryId);
-  
+
   useEffect(() => {
     if (categoryId) {
       const categoryProducts = getProductsByCategory(categoryId);
       setProducts(categoryProducts);
     }
   }, [categoryId]);
-  
+
   if (!category) {
     return <div>Category not found</div>;
   }
-  
+
   return (
     <>
       <Navbar />
-      
+
       <main className="pb-16">
         {/* Category Banner */}
         <div className="relative h-80 bg-fashion-cream overflow-hidden">
           <div className="absolute inset-0">
-            <img 
-              src={category.image} 
-              alt={category.name} 
+            <img
+              src={category.image}
+              alt={category.name}
               className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-fashion-black bg-opacity-40"></div>
           </div>
-          
+
           <div className="relative h-full container-custom flex flex-col justify-center items-center text-center">
             <h1 className="text-white font-serif text-4xl md:text-5xl font-medium mb-4">
               {category.name}
             </h1>
           </div>
         </div>
-        
+
         <div className="container-custom py-8">
           {/* Products Grid - Simplified for Algolia integration */}
+          <InstantSearch searchClient={searchClient} indexName="fashion">
+            <Hits hitComponent={Hit} />
+          </InstantSearch>
           <div className="w-full">
             <div className="mb-6">
               <p className="text-sm text-gray-600">Showing {products.length} products</p>
             </div>
-            
+
             {products.length > 0 ? (
               <div className="product-grid">
                 {products.map((product) => (
@@ -67,10 +79,10 @@ const CategoryPage = () => {
             )}
           </div>
         </div>
-        
+
         <NewsletterSignup />
       </main>
-      
+
       <Footer />
     </>
   );
