@@ -1,8 +1,9 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Search, ShoppingBag, User } from "lucide-react";
+import { Menu, X, User, ShoppingBag } from "lucide-react";
 import { categories } from "@/data/products";
+import AlgoliaSearch from "./AlgoliaSearch";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,9 +33,7 @@ const Navbar = () => {
           
           {/* Icons */}
           <div className="flex items-center space-x-4">
-            <button className="text-fashion-black hover:text-fashion-burgundy transition-colors">
-              <Search size={20} />
-            </button>
+            <AlgoliaSearch />
             <Link to="/account" className="text-fashion-black hover:text-fashion-burgundy transition-colors">
               <User size={20} />
             </Link>
