@@ -10,15 +10,7 @@ import { categories } from "@/data/products";
 import AlgoliaProductHit from "@/components/AlgoliaProductHit";
 
 // Create the Algolia client outside the component to prevent recreation on each render
-// Set the x-algolia-api-key and x-algolia-application-id headers
-const searchClient = algoliasearch('OCMWCWP51K', '03e24dfa26a757a423d97bd062a0fa1b', {
-  requesterOptions: {
-    // This tells Algolia to ignore unknown parameters like data-lov-name
-    headers: {
-      'X-Algolia-UserToken': 'anonymous',
-    }
-  }
-});
+const searchClient = algoliasearch('OCMWCWP51K', '03e24dfa26a757a423d97bd062a0fa1b');
 
 const CategoryPage = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
@@ -29,7 +21,7 @@ const CategoryPage = () => {
   }
 
   // Create the filter in the correct format for Algolia
-  const filter = `hierarchical_categories.lvl0:${categoryId}`;
+  const filter = `hierarchical_categories.lvl0:"${categoryId}"`;
   console.log('Applied Algolia filter:', filter);
 
   return (
