@@ -48,9 +48,9 @@ const CategoryPage = () => {
         </div>
         
         <div className="container-custom py-8">
-          {/* Products Grid */}
+          {/* Products Grid - Simplified for Algolia integration */}
           <div className="w-full">
-            <div className="mb-6 flex justify-between items-center">
+            <div className="mb-6">
               <p className="text-sm text-gray-600">Showing {products.length} products</p>
             </div>
             
