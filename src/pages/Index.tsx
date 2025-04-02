@@ -5,7 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import ShopByOccasion from "@/components/ShopByOccasion";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { getFeaturedProducts, getNewArrivals } from "@/data/interfaces";
+import { getNewArrivals } from "@/data/interfaces";
 import { Link } from "react-router-dom";
 
 const Index = () => {

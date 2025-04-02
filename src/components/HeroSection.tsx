@@ -16,10 +16,10 @@ const HeroSection = () => {
       <div className="relative h-full container-custom flex flex-col justify-center items-start">
         <div className="max-w-xl animate-slide-up">
           <h1 className="text-white font-serif text-4xl md:text-6xl font-medium mb-4">
-            Autumn Collection 2025
+            Timeless Elegance
           </h1>
           <p className="text-white text-lg md:text-xl mb-8">
-            Discover timeless pieces crafted with exceptional quality and attention to detail.
+            Discover premium fashion pieces crafted with exceptional quality and attention to detail.
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <Link
