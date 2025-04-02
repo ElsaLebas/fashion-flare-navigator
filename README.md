@@ -20,6 +20,10 @@ This project is built with:
 - Tailwind CSS
 - Algolia + React InstantSearch
 
+## Link to the demo store
+
+[Click here](https://preview--fashion-flare-navigator.lovable.app/)
+
 ## Lovable Project Link
 
 [Click here](https://lovable.dev/projects/58ac25d5-d7b5-4551-a253-5473a7234333)
