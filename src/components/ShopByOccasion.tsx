@@ -66,7 +66,7 @@ const ShopByOccasion = ({ title }: ShopByOccasionProps) => {
     },
     {
       id: "date",
-      title: "Date Night",
+      title: "Date Night Out",
       image: "https://images.unsplash.com/photo-1565128939079-0d525e675a22?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       link: "/category/women?occasion=date"
     }
@@ -76,17 +76,17 @@ const ShopByOccasion = ({ title }: ShopByOccasionProps) => {
     <section className="py-16 bg-fashion-cream">
       <div className="container-custom">
         <h2 className="section-title text-center">{title}</h2>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
           {occasions.map((occasion) => (
             <Link key={occasion.id} to={occasion.link}>
               <Card className="overflow-hidden border-0 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <CardContent className="p-0 pb-3">
                   <AspectRatio ratio={1}>
-                    <img 
-                      src={occasion.image} 
-                      alt={occasion.title} 
-                      className="w-full h-full object-cover object-center" 
+                    <img
+                      src={occasion.image}
+                      alt={occasion.title}
+                      className="w-full h-full object-cover object-center"
                     />
                   </AspectRatio>
                   <div className="px-4 pt-4 pb-2 text-center">
