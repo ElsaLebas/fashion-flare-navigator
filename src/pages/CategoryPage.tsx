@@ -10,7 +10,27 @@ import { categories } from "@/data/products";
 import AlgoliaProductHit from "@/components/AlgoliaProductHit";
 
 // Create the Algolia client outside the component to prevent recreation on each render
-const searchClient = algoliasearch('OCMWCWP51K', '03e24dfa26a757a423d97bd062a0fa1b');
+const searchClient = algoliasearch('OCMWCWP51K', '03e24dfa26a757a423d97bd062a0fa1b', {
+  requesterOptions: {
+    // These options tell Algolia to ignore any additional attributes like data-lov-name
+    headers: {
+      'X-Algolia-UserToken': 'anonymous',
+    },
+    // This creates a middleware that removes development attributes
+    transformSearchParameters: (params) => {
+      const cleanParams = { ...params };
+      
+      // Remove any development attributes that start with data-
+      Object.keys(cleanParams).forEach(key => {
+        if (key.startsWith('data-')) {
+          delete cleanParams[key];
+        }
+      });
+      
+      return cleanParams;
+    }
+  }
+});
 
 const CategoryPage = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
@@ -51,7 +71,22 @@ const CategoryPage = () => {
           {/* Algolia InstantSearch */}
           <div className="w-full">
             <InstantSearch searchClient={searchClient} indexName="fashion">
-              <Configure filters={filter} />
+              <Configure 
+                filters={filter}
+                // Add this prop to ensure clean parameters
+                transformSearchParameters={(params) => {
+                  const cleanParams = { ...params };
+                  
+                  // Remove any development attributes
+                  Object.keys(cleanParams).forEach(key => {
+                    if (key.startsWith('data-')) {
+                      delete cleanParams[key];
+                    }
+                  });
+                  
+                  return cleanParams;
+                }}
+              />
               
               <div className="mb-6">
                 <p className="text-sm text-gray-600">Showing {category.name} products</p>
