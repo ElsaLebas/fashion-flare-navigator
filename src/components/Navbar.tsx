@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Search, ShoppingBag, User } from "lucide-react";
-import { categories } from "@/data/products";
+import { categories } from "@/data/interfaces";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="font-serif text-2xl font-bold">LUXESTYLE</Link>
-          
+
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-fashion-black hover:text-fashion-burgundy transition-colors">
@@ -38,7 +38,7 @@ const Navbar = () => {
               Accessories
             </Link>
           </div>
-          
+
           {/* Icons */}
           <div className="flex items-center space-x-4">
             <button className="text-fashion-black hover:text-fashion-burgundy transition-colors">
@@ -53,9 +53,9 @@ const Navbar = () => {
                 0
               </span>
             </Link>
-            
+
             {/* Mobile Menu Button */}
-            <button 
+            <button
               className="md:hidden text-fashion-black"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -63,13 +63,13 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        
+
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="text-fashion-black hover:text-fashion-burgundy transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >

@@ -30,7 +30,7 @@ const AlgoliaProductHit = ({ hit }: HitProps) => {
   return (
     <div className="group">
       <div className="relative overflow-hidden">
-        <Link to={`/product/${slug}`}>
+        <Link to="#">
           <img
             src={primary_image}
             alt={name}
@@ -56,7 +56,7 @@ const AlgoliaProductHit = ({ hit }: HitProps) => {
       </div>
 
       <div className="mt-4 px-1">
-        <Link to={`/product/${slug}`} className="block">
+        <Link to="#" className="block">
           <h3 className="text-fashion-black font-medium mb-1 hover:text-fashion-burgundy transition-colors">
             {name}
           </h3>

@@ -6,7 +6,7 @@ import { Hits, InstantSearch, Configure, Pagination } from 'react-instantsearch'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { categories } from "@/data/products";
+import { occasions } from "@/data/interfaces";
 import AlgoliaProductHit from "@/components/AlgoliaProductHit";
 
 // Create the Algolia client outside the component to prevent recreation on each render
@@ -14,23 +14,13 @@ const searchClient = algoliasearch('OCMWCWP51K', '03e24dfa26a757a423d97bd062a0fa
 
 const OccasionPage = () => {
   const { occasionId } = useParams<{ occasionId: string }>();
-  // const occasion = categories.find(c => c.id === occasionId);
+  const occasion = occasions.find(o => o.title === occasionId);
 
-  // if (!occasion) {
-  //   return <div>occasion not found</div>;
-  // }
+  if (!occasion) {
+    return <div>Occasion not found</div>;
+  }
 
-  // Format the occasionId by replacing underscores with spaces for Algolia filter
-  const formattedOccasionId = occasionId ? occasionId.replace(/_/g, ' ') : '';
-
-  // Create the filter in the correct format for Algolia using the formatted occasion ID
-  const filter = `occasion:"${formattedOccasionId}"`;
-
-  // Format the occasion ID for display purpose (capitalize each word)
-  const displayOccasionName = formattedOccasionId
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  const filter = `occasion:"${occasionId}"`;
 
   return (
     <>
@@ -38,11 +28,11 @@ const OccasionPage = () => {
 
       <main className="pb-16">
         {/* Occasion Banner */}
-        {/* <div className="relative h-80 bg-fashion-cream overflow-hidden">
+        <div className="relative h-80 bg-fashion-cream overflow-hidden">
           <div className="absolute inset-0">
             <img
               src={occasion.image}
-              alt={occasion.name}
+              alt={occasion.title}
               className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-fashion-black bg-opacity-40"></div>
@@ -50,10 +40,10 @@ const OccasionPage = () => {
 
           <div className="relative h-full container-custom flex flex-col justify-center items-center text-center">
             <h1 className="text-white font-serif text-4xl md:text-5xl font-medium mb-4">
-              {occasion.name}
+              {occasion.title}
             </h1>
           </div>
-        </div> */}
+        </div>
 
         <div className="container-custom py-8">
           {/* Algolia InstantSearch */}
@@ -62,7 +52,7 @@ const OccasionPage = () => {
               <Configure filters={filter} hitsPerPage={30} />
 
               <div className="mb-6">
-                <p className="text-sm text-gray-600">Showing {displayOccasionName} products</p>
+                <p className="text-sm text-gray-600">Showing {occasionId} products</p>
               </div>
 
               <Hits

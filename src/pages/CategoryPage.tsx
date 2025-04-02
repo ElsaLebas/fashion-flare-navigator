@@ -6,7 +6,7 @@ import { Hits, InstantSearch, Configure, Pagination } from 'react-instantsearch'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { categories } from "@/data/products";
+import { categories } from "@/data/interfaces";
 import AlgoliaProductHit from "@/components/AlgoliaProductHit";
 
 // Create the Algolia client outside the component to prevent recreation on each render
