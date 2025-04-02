@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import ShopByOccasion from "@/components/ShopByOccasion";
+import ShopByProductOccasion from "@/components/ShopByProductOccasion";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { getFeaturedProducts, getNewArrivals } from "@/data/products";
 import { Link } from "react-router-dom";
@@ -19,8 +20,11 @@ const Index = () => {
       <main>
         <HeroSection />
         
-        {/* Shop by Occasion */}
+        {/* Shop by Occasion (Static) */}
         <ShopByOccasion title="Shop by Occasion" />
+        
+        {/* Shop by Product Occasion (Dynamic) */}
+        <ShopByProductOccasion title="Shop by Product Occasion" />
         
         {/* Featured Products */}
         <FeaturedProducts title="Featured Collection" products={featuredProducts} />

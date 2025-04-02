@@ -1,4 +1,3 @@
-
 export interface Product {
   id: number;
   name: string;
@@ -11,12 +10,7 @@ export interface Product {
   featured?: boolean;
   newArrival?: boolean;
   discount?: number;
-}
-
-export interface Category {
-  id: string;
-  name: string;
-  image: string;
+  occasions?: string[];
 }
 
 export const categories: Category[] = [
@@ -55,7 +49,8 @@ export const products: Product[] = [
     description: "Elevate your wardrobe with this luxurious silk blend blazer. Expertly tailored with a modern fit, it features structured shoulders, a notched lapel, and a single-button closure. Perfect for both office and evening occasions.",
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["Black", "Cream", "Navy"],
-    featured: true
+    featured: true,
+    occasions: ["Formal", "Office", "Evening"]
   },
   {
     id: 2,
@@ -68,7 +63,8 @@ export const products: Product[] = [
     description: "Crafted from premium merino wool, this lightweight sweater offers exceptional comfort and warmth. The classic crewneck design makes it a versatile addition to your wardrobe, easily paired with casual or formal attire.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     colors: ["Charcoal", "Burgundy", "Forest Green"],
-    featured: true
+    featured: true,
+    occasions: ["Casual", "Office"]
   },
   {
     id: 3,
@@ -81,7 +77,8 @@ export const products: Product[] = [
     description: "This elegant crossbody bag is handcrafted from full-grain leather with meticulous attention to detail. Its sleek design features a spacious interior, adjustable strap, and signature gold hardware.",
     sizes: ["One Size"],
     colors: ["Tan", "Black", "Burgundy"],
-    newArrival: true
+    newArrival: true,
+    occasions: ["Casual", "Evening", "Party"]
   },
   {
     id: 4,
@@ -94,7 +91,8 @@ export const products: Product[] = [
     description: "Combining classic style with modern comfort, these Chelsea boots are crafted from premium Italian leather. The elastic side panels ensure a comfortable fit, while the Goodyear welt construction provides durability and water resistance.",
     sizes: ["7", "8", "9", "10", "11", "12"],
     colors: ["Black", "Brown", "Oxblood"],
-    featured: true
+    featured: true,
+    occasions: ["Casual", "Office"]
   },
   {
     id: 5,
@@ -107,7 +105,8 @@ export const products: Product[] = [
     description: "Indulge in the luxurious softness of pure cashmere with this timeless turtleneck sweater. Knitted in a fine gauge for a sleek silhouette, it offers exceptional warmth without bulk, making it perfect for layering.",
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["Ivory", "Gray", "Camel"],
-    discount: 15
+    discount: 15,
+    occasions: ["Casual", "Office", "Cozy"]
   },
   {
     id: 6,
@@ -120,7 +119,8 @@ export const products: Product[] = [
     description: "These premium selvedge denim jeans are crafted from Japanese denim and feature a classic straight-leg fit. The minimalist design is enhanced with subtle details including reinforced stitching and custom hardware.",
     sizes: ["30", "32", "34", "36", "38"],
     colors: ["Indigo", "Black", "Stonewash"],
-    newArrival: true
+    newArrival: true,
+    occasions: ["Casual", "Weekend"]
   },
   {
     id: 7,
@@ -133,7 +133,8 @@ export const products: Product[] = [
     description: "Make a statement with this oversized wool coat, designed with dropped shoulders and a relaxed fit. The premium wool blend offers exceptional warmth and comfort, while the clean lines and minimalist details create a sophisticated silhouette.",
     sizes: ["XS", "S", "M", "L"],
     colors: ["Camel", "Black", "Gray"],
-    featured: true
+    featured: true,
+    occasions: ["Winter", "Formal", "Office"]
   },
   {
     id: 8,
@@ -146,7 +147,8 @@ export const products: Product[] = [
     description: "This luxurious scarf is crafted from the finest Mongolian cashmere, known for its exceptional softness and warmth. The lightweight, fine knit construction allows for versatile styling options, from classic wraps to modern knots.",
     sizes: ["One Size"],
     colors: ["Camel", "Burgundy", "Navy", "Gray"],
-    discount: 10
+    discount: 10,
+    occasions: ["Winter", "Gift", "Cozy"]
   }
 ];
 
