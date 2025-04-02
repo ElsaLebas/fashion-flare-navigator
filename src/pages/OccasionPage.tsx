@@ -65,7 +65,34 @@ const OccasionPage = () => {
                 <p className="text-sm text-gray-600">Showing {displayOccasionName} products</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div>
+                <style>
+                  {`
+                    /* Custom styling for Algolia hits to display in a 3-column grid */
+                    .ais-Hits-list {
+                      display: grid;
+                      grid-template-columns: repeat(1, 1fr);
+                      gap: 1.5rem;
+                    }
+                    
+                    @media (min-width: 640px) {
+                      .ais-Hits-list {
+                        grid-template-columns: repeat(2, 1fr);
+                      }
+                    }
+                    
+                    @media (min-width: 768px) {
+                      .ais-Hits-list {
+                        grid-template-columns: repeat(3, 1fr);
+                      }
+                    }
+                    
+                    .ais-Hits-item {
+                      width: 100%;
+                      margin: 0;
+                    }
+                  `}
+                </style>
                 <Hits hitComponent={AlgoliaProductHit} />
               </div>
               <Pagination />
