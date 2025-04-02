@@ -27,6 +27,9 @@ const AlgoliaProductHit = ({ hit }: HitProps) => {
   const { objectID, name, price, primary_image, slug } = hit;
   const hasDiscount = price.discount_percent && price.discount_percent > 0;
   
+  // Add console log to debug the hit data
+  console.log('Rendering product hit:', hit);
+  
   return (
     <div className="group">
       <div className="relative overflow-hidden">

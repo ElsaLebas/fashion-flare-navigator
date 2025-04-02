@@ -19,6 +19,10 @@ const CategoryPage = () => {
     return <div>Category not found</div>;
   }
 
+  // Convert to proper filter format - this is critical for Algolia
+  const filter = `hierarchical_categories.lvl0:${categoryId}`;
+  console.log('Applied Algolia filter:', filter);
+
   return (
     <>
       <Navbar />
@@ -46,11 +50,11 @@ const CategoryPage = () => {
           {/* Algolia InstantSearch */}
           <div className="w-full">
             <InstantSearch searchClient={searchClient} indexName="fashion">
-              {/* Filter using hierarchical_categories.lvl0 attribute */}
-              <Configure filters={`hierarchical_categories.lvl0:"${categoryId}"`} />
+              {/* Filter using hierarchical_categories.lvl0 attribute without quotes */}
+              <Configure filters={filter} />
               
               <div className="mb-6">
-                <p className="text-sm text-gray-600">Browse our {category.name} collection</p>
+                <p className="text-sm text-gray-600">Showing {category.name} products</p>
               </div>
 
               <div className="product-grid">
